@@ -1,4 +1,5 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application, Request, Response } from 'express';
+import playerRoutes from '../routes/player';
 
 
 class Server {
@@ -15,11 +16,10 @@ class Server {
 
     listen() { this.app.listen(this.port, () => { console.log(`App running on port ${this.port}`); }) }
 
-    routes() {
-        this.app.get('/', (req: Request, res: Response) => {
-            res.json({msg: 'API is working'})
-    })
-}
+    routes() { 
+        this.app.get('/', (req: Request, res: Response) => { res.json({ msg: 'API is working' }) }) 
+        this.app.use('/api/players', playerRoutes)
+    }
 
 }
 
