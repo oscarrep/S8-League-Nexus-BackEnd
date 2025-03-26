@@ -1,5 +1,5 @@
 import express, { Application, Request, Response } from 'express';
-import playerRoutes from '../routes/player';
+import playerRoutes from '../routes/player-routes';
 import db from '../db/connection';
 
 class Server {
