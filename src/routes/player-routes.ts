@@ -4,7 +4,7 @@ import { deletePlayer, getPlayer, getPlayers, postPlayer, updatePlayer } from ".
 const router = Router();
 
 router.get('/', getPlayers);
-router.get('/:id', getPlayers);
+router.get('/:id', getPlayer);
 router.delete('/:id', deletePlayer);
 router.post('/', postPlayer);
 router.put('/:id', updatePlayer);
