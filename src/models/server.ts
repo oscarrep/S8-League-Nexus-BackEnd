@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import playerRoutes from '../routes/player-routes';
 import db from '../db/connection';
+import cors from 'cors';
 
 class Server {
 
@@ -23,7 +24,10 @@ class Server {
         this.app.use('/api/players', playerRoutes)
     }
 
-    middlewares() { this.app.use(express.json()); }
+    middlewares() {
+        this.app.use(express.json());
+        this.app.use(cors())
+    }
 
     async dbConnect() {
         try {
