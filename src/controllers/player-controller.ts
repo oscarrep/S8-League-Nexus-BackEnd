@@ -1,42 +1,62 @@
 import { Request, Response } from "express"
+import Player from "../models/player-model"
 
 
-export const getPlayers = (req: Request, res: Response) => {
+export const getPlayers = async (req: Request, res: Response) => {
+    const playerList = await Player.findAll();
 
-    res.json({ msg: 'get players' })
+
+    res.json({ playerList });
 
 }
-export const getPlayer = (req: Request, res: Response) => {
+export const getPlayer = async (req: Request, res: Response) => {
     const { id } = req.params;
+    const player = await Player.findByPk(id);
 
-    res.json({
-        msg: 'get player',
-        id: id
-    })
+    if (player) res.json(player);
+    else res.status(404).json({ msg: `No player at id: ${id}` });
 }
-export const deletePlayer = (req: Request, res: Response) => {
+
+export const deletePlayer = async (req: Request, res: Response) => {
     const { id } = req.params;
+    const player = await Player.findByPk(id);
 
-    res.json({
-        msg: 'delete player',
-        id: id
-    })
+    if (!player) res.status(404).json({ msg: `No player at id: ${id}` });
+    else {
+        await player.destroy();
+        res.json({ msg: `Deleted player at ${id}` })
+    }
 }
-export const postPlayer = (req: Request, res: Response) => {
+export const postPlayer = async (req: Request, res: Response) => {
     const { body } = req;
 
-    res.json({
-        msg: 'post player',
-        body: body
-    })
+    try {
+        await Player.create(body);
+        res.json({ msg: `Created player` });
+    } catch (error) {
+        console.log(error);
+        res.json({ msg: `Error creating player..` });
+    }
+
+
 }
-export const updatePlayer = (req: Request, res: Response) => {
+export const updatePlayer = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { body } = req;
 
-    res.json({
-        msg: 'update player',
-        id: id,
-        body: body
-    })
+
+
+    try {
+        const player = await Player.findByPk(id);
+
+        if (player) {
+            await player.update(body);
+            res.json({ msg: 'Player updated' });
+        }
+        else res.status(404).json({ msg: `No player at id: ${id}` });
+
+    } catch (error) {
+        console.log(error);
+        res.json({ msg: `Error updating player..` });
+    }
 }
