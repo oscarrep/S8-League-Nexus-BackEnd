@@ -10,7 +10,7 @@ const Player = db.define('Player', {
     country: { type: DataTypes.STRING },
     city: { type: DataTypes.STRING },
     lat: { type: DataTypes.STRING },
-    long: { type: DataTypes.STRING },
+    lon: { type: DataTypes.STRING },
     team: { type: DataTypes.STRING },
     img: { type: DataTypes.STRING },
 }, 

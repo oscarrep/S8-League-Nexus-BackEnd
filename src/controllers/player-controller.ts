@@ -6,7 +6,7 @@ export const getPlayers = async (req: Request, res: Response) => {
     const playerList = await Player.findAll();
 
 
-    res.json({ playerList });
+    res.json( playerList );
 
 }
 export const getPlayer = async (req: Request, res: Response) => {
@@ -27,6 +27,7 @@ export const deletePlayer = async (req: Request, res: Response) => {
         res.json({ msg: `Deleted player at ${id}` })
     }
 }
+
 export const postPlayer = async (req: Request, res: Response) => {
     const { body } = req;
 
@@ -43,8 +44,6 @@ export const postPlayer = async (req: Request, res: Response) => {
 export const updatePlayer = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { body } = req;
-
-
 
     try {
         const player = await Player.findByPk(id);

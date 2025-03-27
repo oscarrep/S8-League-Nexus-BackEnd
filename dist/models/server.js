@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const player_routes_1 = __importDefault(require("../routes/player-routes"));
 const connection_1 = __importDefault(require("../db/connection"));
+const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -29,7 +30,10 @@ class Server {
         this.app.get('/', (req, res) => { res.json({ msg: 'API is working' }); });
         this.app.use('/api/players', player_routes_1.default);
     }
-    middlewares() { this.app.use(express_1.default.json()); }
+    middlewares() {
+        this.app.use(express_1.default.json());
+        this.app.use((0, cors_1.default)());
+    }
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
