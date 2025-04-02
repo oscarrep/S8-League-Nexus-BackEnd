@@ -3,11 +3,10 @@ import { DataTypes } from 'sequelize';
 
 const Game = db.define('Game', {
     id: { type: DataTypes.NUMBER, primaryKey:true },
-    event_name: { type: DataTypes.STRING },
+    title: { type: DataTypes.STRING },
     description: { type: DataTypes.STRING },
-    date: { type: DataTypes.DATE },
-    hour_start: { type: DataTypes.TIME },
-    hour_end: { type: DataTypes.TIME },
+    start: { type: DataTypes.DATE },
+    end: { type: DataTypes.DATE },
     location: { type: DataTypes.STRING },
 },
 {

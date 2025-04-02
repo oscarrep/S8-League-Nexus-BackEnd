@@ -7,11 +7,10 @@ const connection_1 = __importDefault(require("../db/connection"));
 const sequelize_1 = require("sequelize");
 const Game = connection_1.default.define('Game', {
     id: { type: sequelize_1.DataTypes.NUMBER, primaryKey: true },
-    event_name: { type: sequelize_1.DataTypes.STRING },
+    title: { type: sequelize_1.DataTypes.STRING },
     description: { type: sequelize_1.DataTypes.STRING },
-    date: { type: sequelize_1.DataTypes.DATE },
-    hour_start: { type: sequelize_1.DataTypes.TIME },
-    hour_end: { type: sequelize_1.DataTypes.TIME },
+    start: { type: sequelize_1.DataTypes.DATE },
+    end: { type: sequelize_1.DataTypes.DATE },
     location: { type: sequelize_1.DataTypes.STRING },
 }, {
     createdAt: false,
