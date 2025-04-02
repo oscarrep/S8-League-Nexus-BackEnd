@@ -7,7 +7,7 @@ const Game = db.define('Game', {
     description: { type: DataTypes.STRING },
     start: { type: DataTypes.DATE },
     end: { type: DataTypes.DATE },
-    location: { type: DataTypes.STRING },
+    league: { type: DataTypes.STRING },
 },
 {
     createdAt:false,

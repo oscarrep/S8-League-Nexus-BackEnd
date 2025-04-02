@@ -11,7 +11,7 @@ const Game = connection_1.default.define('Game', {
     description: { type: sequelize_1.DataTypes.STRING },
     start: { type: sequelize_1.DataTypes.DATE },
     end: { type: sequelize_1.DataTypes.DATE },
-    location: { type: sequelize_1.DataTypes.STRING },
+    league: { type: sequelize_1.DataTypes.STRING },
 }, {
     createdAt: false,
     updatedAt: false
