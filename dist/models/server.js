@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const player_routes_1 = __importDefault(require("../routes/player-routes"));
+const routes_1 = __importDefault(require("../routes/routes"));
 const connection_1 = __importDefault(require("../db/connection"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -28,7 +28,7 @@ class Server {
     listen() { this.app.listen(this.port, () => { console.log(`App running on port ${this.port}`); }); }
     routes() {
         this.app.get('/', (req, res) => { res.json({ msg: 'API is working' }); });
-        this.app.use('/api/players', player_routes_1.default);
+        this.app.use('/api/players', routes_1.default);
     }
     middlewares() {
         this.app.use(express_1.default.json());

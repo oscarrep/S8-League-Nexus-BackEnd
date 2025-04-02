@@ -1,5 +1,5 @@
 import express, { Application, Request, Response } from 'express';
-import playerRoutes from '../routes/player-routes';
+import routes from '../routes/routes';
 import db from '../db/connection';
 import cors from 'cors';
 
@@ -21,7 +21,7 @@ class Server {
 
     routes() {
         this.app.get('/', (req: Request, res: Response) => { res.json({ msg: 'API is working' }) })
-        this.app.use('/api/players', playerRoutes)
+        this.app.use('/api/players', routes)
     }
 
     middlewares() {
@@ -37,8 +37,6 @@ class Server {
             console.error(error);
             console.error('Error connecting to database');
         }
-
-
     }
 
 }
