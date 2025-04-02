@@ -8,12 +8,11 @@ const sequelize_1 = require("sequelize");
 const Game = connection_1.default.define('Game', {
     id: { type: sequelize_1.DataTypes.NUMBER, primaryKey: true },
     event_name: { type: sequelize_1.DataTypes.STRING },
-    day: { type: sequelize_1.DataTypes.STRING },
-    month: { type: sequelize_1.DataTypes.STRING },
-    hour_start: { type: sequelize_1.DataTypes.STRING },
-    hour_end: { type: sequelize_1.DataTypes.STRING },
-    team1: { type: sequelize_1.DataTypes.STRING },
-    team2: { type: sequelize_1.DataTypes.STRING },
+    description: { type: sequelize_1.DataTypes.STRING },
+    date: { type: sequelize_1.DataTypes.DATE },
+    hour_start: { type: sequelize_1.DataTypes.TIME },
+    hour_end: { type: sequelize_1.DataTypes.TIME },
+    location: { type: sequelize_1.DataTypes.STRING },
 }, {
     createdAt: false,
     updatedAt: false
