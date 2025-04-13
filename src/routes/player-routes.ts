@@ -9,5 +9,4 @@ router.delete('/:id', deletePlayer);
 router.post('/', postPlayer);
 router.put('/:id', updatePlayer);
 
-
 export default router;
