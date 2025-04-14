@@ -5,8 +5,8 @@ const Game = db.define('Game', {
     id: { type: DataTypes.NUMBER, primaryKey:true },
     title: { type: DataTypes.STRING },
     description: { type: DataTypes.STRING },
-    start_date: { type: DataTypes.DATE },
-    end_date: { type: DataTypes.DATE },
+    start: { type: DataTypes.DATE },
+    end: { type: DataTypes.DATE },
     league: { type: DataTypes.STRING },
 },
 {
