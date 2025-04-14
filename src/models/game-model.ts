@@ -2,16 +2,16 @@ import db from '../db/connection';
 import { DataTypes } from 'sequelize';
 
 const Game = db.define('Game', {
-    id: { type: DataTypes.NUMBER, primaryKey:true },
+    id: { type: DataTypes.INTEGER, primaryKey:true },
     title: { type: DataTypes.STRING },
     description: { type: DataTypes.STRING },
-    start: { type: DataTypes.DATE },
-    end: { type: DataTypes.DATE },
+    start_date: { type: DataTypes.DATE },
+    end_date: { type: DataTypes.DATE },
     league: { type: DataTypes.STRING },
 },
 {
     createdAt:false,
-    updatedAt:false
+    updatedAt:false,
 });
 
 export default Game;
