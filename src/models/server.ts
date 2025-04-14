@@ -28,7 +28,10 @@ class Server {
 
     middlewares() {
         this.app.use(express.json());
-        this.app.use(cors())
+        this.app.use(cors({
+            origin: [process.env.VERCEL_URL || ''],
+            credentials: true
+        }));
     }
 
     async dbConnect() {
