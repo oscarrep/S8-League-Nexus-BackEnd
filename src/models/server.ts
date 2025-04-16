@@ -12,10 +12,10 @@ class Server {
     constructor() {
         this.app = express()
         this.port = process.env.PORT || '3001';
-        this.listen();
         this.middlewares();
         this.routes();
         this.dbConnect();
+        this.listen();
     }
 
     listen() { this.app.listen(this.port, () => { console.log(`App running on port ${this.port}`); }) }
