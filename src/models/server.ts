@@ -28,7 +28,10 @@ class Server {
 
     middlewares() {
         this.app.use(express.json());
-        this.app.use(cors());
+        this.app.use(cors({
+            origin: 'https://s8-league-nexus.vercel.app',
+            credentials: true
+        }));
     }
 
     async dbConnect() {
