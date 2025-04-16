@@ -32,6 +32,10 @@ class Server {
             origin: 'https://s8-league-nexus.vercel.app',
             credentials: true
         }));
+        this.app.options('*', cors({
+            origin: 'https://s8-league-nexus.vercel.app',
+            credentials: true
+        }));
     }
 
     async dbConnect() {
