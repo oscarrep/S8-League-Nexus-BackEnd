@@ -27,16 +27,23 @@ class Server {
     }
 
     middlewares() {
-        this.app.use(express.json());
         this.app.use(cors({
-            origin: 'https://s8-league-nexus.vercel.app',
-            credentials: true
+          origin: (origin, callback) => {
+            const allowedOrigins = [
+              'https://s8-league-nexus.vercel.app',
+              'http://localhost:4200'
+            ];
+            if (!origin || allowedOrigins.includes(origin)) {
+              callback(null, true);
+            } else {
+              callback(new Error('Not allowed by CORS'));
+            }
+          },
+          credentials: true
         }));
-        this.app.options('*', cors({
-            origin: 'https://s8-league-nexus.vercel.app',
-            credentials: true
-        }));
-    }
+      
+        this.app.use(express.json());
+      }
 
     async dbConnect() {
         try {
