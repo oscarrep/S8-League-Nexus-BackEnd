@@ -2,7 +2,7 @@ import db from '../db/connection';
 import { DataTypes } from 'sequelize';
 
 const Player = db.define('Player', {
-    id: { type: DataTypes.NUMBER, primaryKey:true },
+    id: { type: DataTypes.INTEGER, primaryKey:true },
     username: { type: DataTypes.STRING },
     name: { type: DataTypes.STRING },
     position: { type: DataTypes.STRING },
