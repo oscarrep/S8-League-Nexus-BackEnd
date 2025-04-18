@@ -38,9 +38,8 @@ export const postPlayer = async (req: Request, res: Response) => {
         console.log(error);
         res.json({ msg: `Error creating player..` });
     }
-
-
 }
+
 export const updatePlayer = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { body } = req;
