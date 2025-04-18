@@ -28,27 +28,30 @@ class Server {
 
     middlewares() {
         this.app.use(cors({
-          origin: (origin, callback) => {
-            const allowedOrigins = [
-              'https://s8-league-nexus.vercel.app',
-              'http://localhost:4200'
-            ];
-            if (!origin || allowedOrigins.includes(origin)) {
-              callback(null, true);
-            } else {
-              callback(new Error('Not allowed by CORS'));
-            }
-          },
-          credentials: true
+            origin: (origin, callback) => {
+                const allowedOrigins = [
+                    'https://s8-league-nexus.vercel.app',
+                    'http://localhost:4200'
+                ];
+                if (!origin || allowedOrigins.includes(origin)) {
+                    callback(null, true);
+                } else {
+                    callback(new Error('Not allowed by CORS'));
+                }
+            },
+            credentials: true
         }));
-      
+
         this.app.use(express.json());
-      }
+    }
 
     async dbConnect() {
         try {
             await db.authenticate();
             console.log('Database connected');
+
+            await db.sync({ force: false });
+            console.log('Tables synced');
         } catch (error) {
             console.error(error);
             console.error('Error connecting to database');
