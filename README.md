@@ -1,6 +1,6 @@
 # League Nexus API
 
-This is the backend API repository for the League Nexus application. It provides database connectivity and CRUD operations for managing players and matches data in the League Nexus app.
+This is the backend API repository for the [League Nexus application](https://github.com/oscarrep/S8-League-Nexus). It provides database connectivity and CRUD operations for managing players and matches data in the League Nexus app.
 
 ## Project Overview
 
@@ -112,6 +112,9 @@ For development purposes, you can run the server with nodemon:
 nodemon dist/index.js
 ```
 
+## License
+
+Check out the Front End app here: `https://github.com/oscarrep/S8-League-Nexus`
 
 ## License
 
